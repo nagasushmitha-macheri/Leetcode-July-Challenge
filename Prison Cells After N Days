@@ -1,0 +1,15 @@
+class Solution:
+    def prisonAfterNDays(self, cells: List[int], N: int) -> List[int]:
+        if len(cells) < 3:
+            return cells
+        n = 14 if N % 14 == 0 else N % 14
+        for i in range(n):
+            tmp = [0, 0, 0, 0, 0, 0, 0, 0] 
+            for j in range(8):
+                if j - 1 < 0 or j + 1 > 7 or cells[j-1] != cells[j+1]:
+                    tmp[j] = 0
+                else:
+                    tmp[j] = 1
+            cells = tmp     
+        return cells
+        
