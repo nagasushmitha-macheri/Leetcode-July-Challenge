@@ -1,0 +1,5 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        nums.sort()
+        d=Counter(nums)
+        return heapq.nlargest(k, d.keys(), key=d.get)
